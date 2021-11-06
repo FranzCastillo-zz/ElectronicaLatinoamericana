@@ -1,8 +1,12 @@
 package Productos.Dispositivos;
 
+import Productos.Producto;
 import Productos.Interfaces.*;
 
-public class Tablet implements TomarFoto, NavegarInternet, ReproducirVideo, Portable{
+public class Tablet extends Producto implements TomarFoto, NavegarInternet, ReproducirVideo, Portable{
+    public Tablet(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
+        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+    }
     public String portable() {
         return null;
     }
@@ -13,6 +17,9 @@ public class Tablet implements TomarFoto, NavegarInternet, ReproducirVideo, Port
         return null;
     }
     public String tomarFoto() {
+        return null;
+    }
+    public String probar() {
         return null;
     }
     

@@ -1,8 +1,12 @@
 package Productos.Dispositivos;
 
+import Productos.Producto;
 import Productos.Interfaces.*;
 
-public class Desktop implements NavegarInternet, ReproducirVideo, EjecutarVideojuego{
+public class Desktop extends Producto implements NavegarInternet, ReproducirVideo, EjecutarVideojuego{
+    public Desktop(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
+        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+    }
     public String ejecutar(String juego) {
         return null;
     }
@@ -12,5 +16,7 @@ public class Desktop implements NavegarInternet, ReproducirVideo, EjecutarVideoj
     public String navegar(String link) {
         return null;
     }
-    
+    public String probar() {
+        return null;
+    }
 }

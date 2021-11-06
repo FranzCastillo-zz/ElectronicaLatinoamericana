@@ -1,8 +1,12 @@
 package Productos.Dispositivos;
 
+import Productos.*;
 import Productos.Interfaces.*;
 
-public class Smartphone implements HacerLlamadas, TomarFoto, NavegarInternet, ReproducirVideo, Portable {
+public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, NavegarInternet, ReproducirVideo, Portable {
+    public Smartphone(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
+        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+    }
     public String portable() {
         return null;
     }
@@ -16,6 +20,9 @@ public class Smartphone implements HacerLlamadas, TomarFoto, NavegarInternet, Re
         return null;
     }
     public String llamar(int numero) {
+        return null;
+    }
+    public String probar() {
         return null;
     }
     
