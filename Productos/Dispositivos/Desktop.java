@@ -5,7 +5,7 @@ import Productos.Interfaces.*;
 
 public class Desktop extends Producto implements NavegarInternet, ReproducirVideo, EjecutarVideojuego{
     public Desktop(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
-        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+        super("Computadora de escritorio", nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
     }
     public String ejecutar(String juego) {
         return null;

@@ -5,7 +5,7 @@ import Productos.Interfaces.*;
 
 public class Smartwatch extends Producto implements TomarFoto, Portable, HacerLlamadas{
     public Smartwatch(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
-        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+        super("Smartwatch", nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
     }
     public String llamar(int numero) {
         return null;

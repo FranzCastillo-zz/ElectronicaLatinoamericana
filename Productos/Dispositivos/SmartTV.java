@@ -5,7 +5,7 @@ import Productos.Interfaces.*;
 
 public class SmartTV extends Producto implements NavegarInternet, ReproducirVideo{
     public SmartTV(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
-        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+        super("Smart TV", nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
     }
     public String reproducir() {
         return null;

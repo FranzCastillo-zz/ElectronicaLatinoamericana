@@ -15,8 +15,10 @@ public abstract class Producto {
     private String serie;
     private String fechaDeFabrticacion;
     private String marcadorAR;
+    private String tipo;
 
-    public Producto(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
+    public Producto(String tipo, String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
+        this.tipo = tipo;
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
@@ -77,6 +79,15 @@ public abstract class Producto {
         detalles += "Marcador AR: " + this.marcadorAR + "\tSerie: " + this.serie + "\n";
         detalles += "Fabricado el: " + this.fechaDeFabrticacion;
         return detalles;
+    }
+    
+    /** 
+     * @return String El resumen del producto para mostrar en la opcion de seleccionar producto
+     */
+    public String getResumen(){
+        String resumen = "";
+        resumen = this.tipo + " || " + this.nombre + " || " + this.marca + " || Q." + this.precio;
+        return resumen;
     }
     public abstract String probar();
 }

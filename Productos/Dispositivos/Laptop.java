@@ -5,7 +5,7 @@ import Productos.Interfaces.*;
 
 public class Laptop extends Producto implements NavegarInternet, EjecutarVideojuego, ReproducirVideo, Portable{
     public Laptop(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
-        super(nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+        super("Laptop", nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
     }
     public String portable() {
         return null;
