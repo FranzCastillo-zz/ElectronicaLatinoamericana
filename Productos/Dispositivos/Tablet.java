@@ -19,7 +19,11 @@ public class Tablet extends Producto implements TomarFoto, NavegarInternet, Repr
     public String tomarFoto() {
         return null;
     }
-    public String probar() {
+    public String[] getFuncionalidades() {
+        String[] funcionalidades = {"Tomar FOtografias", "Navegar por Internet", "Reproduccion de video", "Portabilidad"};
+        return funcionalidades;
+    }
+    public String probar(int funcion) {
         return null;
     }
     

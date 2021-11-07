@@ -19,7 +19,11 @@ public class Laptop extends Producto implements NavegarInternet, EjecutarVideoju
     public String navegar(String link) {
         return null;
     }
-    public String probar() {
+    public String[] getFuncionalidades() {
+        String[] funcionalidades = {"Ejecutar Videojuegos", "Navegar por Internet", "Reproduccion de video", "Portabilidad"};
+        return funcionalidades;
+    }
+    public String probar(int funcion) {
         return null;
     }
 }

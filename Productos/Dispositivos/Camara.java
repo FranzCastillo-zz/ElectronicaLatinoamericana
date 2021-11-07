@@ -16,7 +16,11 @@ public class Camara extends Producto implements TomarFoto, ReproducirVideo, Port
     public String tomarFoto() {
         return null;
     }
-    public String probar() {
+    public String[] getFuncionalidades() {
+        String[] funcionalidades = {"Portabilidad", "Reproduccion de Videos", "Toma de Fotografias"};
+        return funcionalidades;
+    }
+    public String probar(int funcion) {
         return null;
     }
 }

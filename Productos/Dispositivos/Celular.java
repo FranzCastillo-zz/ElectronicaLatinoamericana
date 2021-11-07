@@ -13,7 +13,11 @@ public class Celular extends Producto implements HacerLlamadas, Portable{
     public String llamar(int numero) {
         return null;
     }
-    public String probar() {
+    public String[] getFuncionalidades() {
+        String[] funcionalidades = {"Portabilidad", "Realizar Llamadas"};
+        return funcionalidades;
+    }
+    public String probar(int funcion) {
         return null;
     }
 }

@@ -16,7 +16,11 @@ public class Desktop extends Producto implements NavegarInternet, ReproducirVide
     public String navegar(String link) {
         return null;
     }
-    public String probar() {
+    public String[] getFuncionalidades() {
+        String[] funcionalidades = {"Ejecutar Videojuegos", "Navegar por Internet", "Reproduccion de video"};
+        return funcionalidades;
+    }
+    public String probar(int funcion) {
         return null;
     }
 }

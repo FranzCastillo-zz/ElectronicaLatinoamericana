@@ -89,5 +89,6 @@ public abstract class Producto {
         resumen = this.tipo + " || " + this.nombre + " || " + this.marca + " || Q." + this.precio;
         return resumen;
     }
-    public abstract String probar();
+    public abstract String probar(int funcion);
+    public abstract String[] getFuncionalidades();
 }
