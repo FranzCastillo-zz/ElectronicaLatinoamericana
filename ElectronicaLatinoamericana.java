@@ -49,7 +49,7 @@ public class ElectronicaLatinoamericana {
                     int opcionProducto = v.mostrarMenuVerProducto();
                     switch(opcionProducto){
                         case 1: // PROBAR
-                            productoActual.probar();
+                            probarProducto(productoActual);
                         break;
                         case 2: // AGREGAR AL CARRITO
                             carrito.agregarAlCarrito(productoActual);
@@ -63,6 +63,17 @@ public class ElectronicaLatinoamericana {
                         break;
                     }
                 }
+            }
+        }
+    }
+    private void probarProducto(Producto producto){
+        boolean regresarSeleccionDeProducto = false;
+        while(!regresarSeleccionDeProducto){
+            int funcion = v.mostrarMenuProbarProducto(producto); //DEVUELVE -1 SI EL USUARIO DESEA REGRESAR A LOS PRODUCTOS
+            if(funcion == -1){
+                regresarSeleccionDeProducto = true; //TERMINARIA EL CICLO DE LA FUNCION AL NO CUMPLIR CON EL WHILE
+            }else{    
+                v.mostrarPrueba(producto.probar(funcion));
             }
         }
     }

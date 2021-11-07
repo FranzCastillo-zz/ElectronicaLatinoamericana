@@ -1,5 +1,6 @@
 import Productos.Producto;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Vista {
@@ -84,5 +85,37 @@ public class Vista {
     public void mostrarAgregadoAlCarrito(Producto producto){
         prnt("Se ha agregado exitosamente al carrito:");
         prnt("\t- " + producto.getResumen());
+    }
+    public int mostrarMenuProbarProducto(Producto producto){
+        prnt(producto.getDetalles());
+        prnt("-----------------------------------------------------------");
+        prnt("Este producto cuenta con las siguientes funcionalidades: ");
+        // CONVIERTE EL ARRAY DE FUNCIONALIDADES DE LOS PRODUCTOS EN UN ARRAYLIST
+        ArrayList<String> funcionalidades = new ArrayList<>(Arrays.asList(producto.getFuncionalidades()));
+        int i = 1; // LLEVA EL NUMERO DE LA FUNCION
+        for (String funcion : funcionalidades) {
+            prnt(i++ + ") " + funcion);
+        }
+        prnt("-----------------------------------------------------------");
+        while(true){
+            prnt("\nQue funcionalidad desea probar? (Ingrese una opcion entre 1 y " + (i - 1) + " o escriba 'salir' para regresar a la seleccion de productos)");
+            String ingreso = scan.nextLine().toUpperCase();
+            try{
+                int opcion = Integer.parseInt(ingreso) - 1;
+                if(opcion >= 0 && opcion <= (i - 1)){
+                    return opcion;
+                }else{ // SI NO ESTA EN EL RANGO
+                    mostrarOpcionInvalida();
+                }
+            }catch(Exception e){ // SI INGRESO ALGO QUE NO ES UN NUMERO
+                if(ingreso.equals("SALIR")){
+                    return -1;
+                }
+                mostrarOpcionInvalida();
+            }
+        }
+    }
+    public void mostrarPrueba(String resultadoFuncion){
+        prnt(resultadoFuncion);
     }
 }
