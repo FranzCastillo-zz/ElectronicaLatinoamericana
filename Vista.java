@@ -1,6 +1,5 @@
 import Productos.Producto;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Vista {
@@ -92,36 +91,68 @@ public class Vista {
         prnt("Se ha agregado exitosamente al carrito:");
         prnt("\t- " + producto.getResumen());
     }
+
     public int mostrarMenuProbarProducto(Producto producto){
-        prnt(producto.getDetalles());
+        prnt("-----------------------------------------------------------");
+        prnt(producto.getResumen());
         prnt("-----------------------------------------------------------");
         prnt("Este producto cuenta con las siguientes funcionalidades: ");
-        // CONVIERTE EL ARRAY DE FUNCIONALIDADES DE LOS PRODUCTOS EN UN ARRAYLIST
         ArrayList<String> funcionalidades = new ArrayList<>(producto.getFuncionalidades());
-        int i = 1; // LLEVA EL NUMERO DE LA FUNCION
+        String funciones = "| ";
         for (String funcion : funcionalidades) {
-            prnt(i++ + ") " + funcion);
+            funciones += funcion + " | ";
         }
+        prnt(funciones);
         prnt("-----------------------------------------------------------");
+        prnt("Que funcionalidad desea probar?");
+        prnt("1) Ejecutar un Videojuego");
+        prnt("2) Hacer una llamada");
+        prnt("3) Navegar por Internet");
+        prnt("4) Portabilidad");
+        prnt("5) Reproducir Video");
+        prnt("6) Tomar Fotografia\n");
+        prnt("7) Regresar a seleccion de producto");
         while(true){
-            prnt("\nQue funcionalidad desea probar? (Ingrese una opcion entre 1 y " + (i - 1) + " o escriba 'salir' para regresar a la seleccion de productos)");
-            String ingreso = scan.nextLine().toUpperCase();
+            prnt("\nIngrese la opcion deseada:");
             try{
-                int opcion = Integer.parseInt(ingreso) - 1;
-                if(opcion >= 0 && opcion <= (i - 1)){
+                int opcion = scan.nextInt();
+                scan.nextLine();
+                if(opcion >= 1 && opcion <= 7){
                     return opcion;
-                }else{ // SI NO ESTA EN EL RANGO
+                }else{
                     mostrarOpcionInvalida();
                 }
-            }catch(Exception e){ // SI INGRESO ALGO QUE NO ES UN NUMERO
-                if(ingreso.equals("SALIR")){
-                    return -1;
-                }
+            }catch(Exception e){
+                scan.next();
                 mostrarOpcionInvalida();
             }
         }
     }
     public void mostrarPrueba(String resultadoFuncion){
         prnt(resultadoFuncion);
+    }
+    public void mostrarProductoNoPuedeHacerFuncion(){
+        prnt("Su producto no es apto para realizar la funcionalidad que desea probar.");
+    }
+    public String pedirLink(){
+        prnt("Ingrese el URL que desea visitar:");
+        return scan.nextLine();
+    }
+    public String pedirNumero(){
+        while(true){
+            prnt("Ingrese el numero telefonico al que desea llamar:");
+            try{
+                int numero = scan.nextInt();
+                scan.nextLine();
+                return Integer.toString(numero);
+            }catch(Exception e){
+                scan.next();
+                mostrarOpcionInvalida();
+            }
+        }
+    }
+    public String pedirJuego(){
+        prnt("Ingrese el juego que desa probar:");
+        return scan.nextLine();
     }
 }

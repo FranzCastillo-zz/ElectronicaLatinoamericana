@@ -28,7 +28,7 @@ public abstract class Producto {
         this.serie = serie;
         this.fechaDeFabrticacion = fechaDeFabricacion;
         this.marcadorAR = marcadorAR;
-
+        this.funcionalidades = new ArrayList<>();
     }
     
     /** 
@@ -98,16 +98,14 @@ public abstract class Producto {
         this.funcionalidades.add(funcionalidad);
     }
 
-    public abstract String probar(int funcion);
+    public abstract String probar(String funcion, String destino);
     public ArrayList<String> getFuncionalidades(){
-        /*
-
-        Portabilidad
-        Reproduccion de Videos
-        Toma de Fotografias
-        Realizar Llamadas
-
-        */
         return this.funcionalidades;
     }
+    public abstract boolean ejecutaVidejouegos();
+    public abstract boolean haceLlamadas();
+    public abstract boolean navegaInternet();
+    public abstract boolean esPortatil();
+    public abstract boolean tomaFotos();
+    public abstract boolean reproduceVideos();
 }

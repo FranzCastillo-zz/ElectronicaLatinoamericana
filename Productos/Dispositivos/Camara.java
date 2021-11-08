@@ -11,27 +11,54 @@ public class Camara extends Producto implements TomarFoto, ReproducirVideo, Port
         this.agregarFuncionalidad("Toma de Fotografias");
     }
     public String portable() {
-        String esPortatil = "La camara + " + this.getNombre() + " es portatil! Cabe perfectamente en el estuche incluido :). *la guarda*";
-        return esPortatil;
+        return "La camara + " + this.getNombre() + " es portatil! Cabe perfectamente en el estuche incluido :). *la guarda*";
     }
     public String reproducir() {
-        String video = "*reproduciendo video capturado con mi camara " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";
-        return video;
+        return "*reproduciendo video capturado con mi camara " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";
     }
     public String tomarFoto() {
-        String foto = "Say CHEESE :D *le toma la foto con la " + this.getNombre() + "* SE VE GENIAL!";
-        return foto;
+        return "Say CHEESE :D *le toma la foto con la camara " + this.getNombre() + "* SE VE GENIAL!";
     }
-    public String probar(int funcion) { //EL ORDEN ES DETERMINADO POR getFuncionalidades
+    public String probar(String funcion, String destino) { //EL ORDEN ES DETERMINADO POR getFuncionalidades
         switch(funcion){
-            case 1:
+            case "portabilidad":
                 return this.portable();
-            case 2:
+            case "reproducirVideo":
                 return this.reproducir();
-            case 3:
+            case "tomarFoto":
                 return this.tomarFoto();
             default:
                 return "Algo salio mal al intentar probar la camara. Intente de nuevo";
         }
+    }
+    @Override
+    public boolean ejecutaVidejouegos() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public boolean haceLlamadas() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public boolean navegaInternet() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public boolean esPortatil() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+    @Override
+    public boolean tomaFotos() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+    @Override
+    public boolean reproduceVideos() {
+        // TODO Auto-generated method stub
+        return true;
     }
 }
