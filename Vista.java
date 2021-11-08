@@ -158,7 +158,7 @@ public class Vista {
 
     public String pedirTipo()
     {
-        String nombres[] = {"Camara", "Celular", "Desktop", "Laptop", "Smarthpone", "SmartTV", "Smartwatch", "Tablet", "TelefonoFijo"}; //array con los tipos de dispositivos disponibles
+        String nombres[] = {"Camara", "Celular", "Desktop", "Laptop", "Smartphone", "SmartTV", "Smartwatch", "Tablet", "TelefonoFijo"}; //array con los tipos de dispositivos disponibles
         boolean bandera = false; //bandera para la validación
         while(true)
         {
