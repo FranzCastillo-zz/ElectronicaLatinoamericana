@@ -5,9 +5,6 @@ import java.io.FileWriter;
 import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
-
-import javax.lang.model.util.ElementScanner14;
-
 public class ElectronicaLatinoamericana {
     private ArrayList<Producto> productos;
     private Carrito carrito;
@@ -22,8 +19,6 @@ public class ElectronicaLatinoamericana {
     }
     public void ejecutar(){
         leerArchivo(); 
-        //Telfono;iPhone;Apple
-        productos.add(new Productos.Dispositivos.Smartphone("iPhone", "Apple", 1200, "11", "11/6/2021", "ARMSDMJD"));
         v.inicio();
         while(true){
             int opcion = v.mostarMenuPrincipal();
