@@ -164,6 +164,7 @@ public class Vista {
         {
             prnt("Ingrese el tipo de dispositivo (Camara/Celular/Desktop/Laptop/Smartphone/SmartTV/Smartwatch/Tablet/TelefonoFijo):");
             String nombre = scan.nextLine(); //leer linea
+            nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
             for (int i = 0; i < nombres.length; i++) //validación
             {
                 if(nombre.equals(nombres[i])) //si el nombre ingresado si está dentro del array
