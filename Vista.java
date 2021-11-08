@@ -162,7 +162,7 @@ public class Vista {
         boolean bandera = false; //bandera para la validación
         while(true)
         {
-            prnt("Ingrese el tipo de dispositivo:");
+            prnt("Ingrese el tipo de dispositivo (Camara/Celular/Desktop/Laptop/Smartphone/SmartTV/Smartwatch/Tablet/TelefonoFijo):");
             String nombre = scan.nextLine(); //leer linea
             for (int i = 0; i < nombres.length; i++) //validación
             {

@@ -150,8 +150,9 @@ public class ElectronicaLatinoamericana {
             {
                 productos.add(new Productos.Dispositivos.TelefonoFijo(nombre, marca, precio, serie, fecha, ar));
             }
+            //cadena con los datos
             String cadena = tipo + ";" + nombre + ";" + marca + ";" + Integer.toString(precio) + ";" + serie + ";" + fecha + ";" + ar;
-            escribirProducto(cadena);
+            escribirProducto(cadena); //ingresar cadena al archivo
 
         }
         else //el precio NO es un int
@@ -164,9 +165,9 @@ public class ElectronicaLatinoamericana {
         //validación
         try 
         {    
-            FileWriter escritor = new FileWriter("Productos.txt", true);
-            escritor.write("\n");
-            escritor.write(cadena);
+            FileWriter escritor = new FileWriter("Productos.txt", true); //escritor append (concatena, no reescribe)
+            escritor.write("\n"); //escribir salto de linea
+            escritor.write(cadena); //escribir cadena
             escritor.close();
         } 
         catch (IOException e) //no encuentra el archivo
