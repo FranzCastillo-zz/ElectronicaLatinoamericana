@@ -162,39 +162,76 @@ public class Vista {
 
     public String pedirTipo()
     {
-        String nombres[] = {"Camara", "Celular", "Desktop", "Laptop", "Smartphone", "SmartTV", "Smartwatch", "Tablet", "TelefonoFijo"}; //array con los tipos de dispositivos disponibles
+        String nombres[] = {"Camara", "Celular", "Desktop", "Laptop", "Smartphone", "Smarttv", "Smartwatch", "Tablet", "Telefonofijo"}; //array con los tipos de dispositivos disponibles
         boolean bandera = false; //bandera para la validación
         while(true)
         {
             prnt("Ingrese el tipo de dispositivo (Camara/Celular/Desktop/Laptop/Smartphone/SmartTV/Smartwatch/Tablet/TelefonoFijo):");
             String nombre = scan.nextLine(); //leer linea
-            nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
-            for (int i = 0; i < nombres.length; i++) //validación
+            if (nombre.equals(""))
             {
-                if(nombre.equals(nombres[i])) //si el nombre ingresado si está dentro del array
-                {
-                    bandera = true;
-                }
-            }
-            if(bandera == true) //el nombre es correcto
-            {
-                return nombre;
+                mostrarOpcionInvalida();
             }
             else
             {
-                mostrarOpcionInvalida();
+                nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
+                for (int i = 0; i < nombres.length; i++) //validación
+                {
+                    if(nombre.equals(nombres[i])) //si el nombre ingresado si está dentro del array
+                    {
+                        bandera = true;
+                    }
+                }
+                if (nombre.equals(nombres[5]))
+                {
+                    nombre = "SmartTV";
+                }
+                if (nombre.equals(nombres[8]))
+                {
+                    nombre = "TelefonoFijo";
+                }
+                if(bandera == true) //el nombre es correcto
+                {
+                    return nombre;
+                }
+                else
+                {
+                    mostrarOpcionInvalida();
+                }
             }
         }
     }
     public String pedirNombre()
     {
-        prnt("Ingrese el nombre del dispositivo:");
-        return scan.nextLine();
+        while(true)
+        {
+            prnt("Ingrese el nombre del dispositivo:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
     }
     public String pedirMarca()
     {
-        prnt("Ingrese la marca del dispositivo:");
-        return scan.nextLine();
+        while(true)
+        {
+            prnt("Ingrese la marca del dispositivo:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
     }
     public int pedirPrecio()
     {
@@ -210,8 +247,19 @@ public class Vista {
     }
     public String pedirSerie()
     {
-        prnt("Ingrese la serie del dispositivo:");
-        return scan.nextLine();
+        while(true)
+        {
+            prnt("Ingrese la serie del dispositivo:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
     }
     public String pedirFecha(){
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -219,7 +267,7 @@ public class Vista {
         Date temp = null;
         while(!ingresoValido){
             prnt("Ingrese la fecha de publicacion (dd/MM/yyyy)");
-            String fecha = scan.next();
+            String fecha = scan.nextLine();
             try{
                 temp = formato.parse(fecha);
                 ingresoValido = true;
@@ -234,8 +282,19 @@ public class Vista {
     }
     public String pedirMarcador()
     {
-        prnt("Ingrese el marcador AR del dispositivo:");
-        return scan.nextLine();
+        while(true)
+        {
+            prnt("Ingrese el marcador AR del dispositivo:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
     }
 
     
