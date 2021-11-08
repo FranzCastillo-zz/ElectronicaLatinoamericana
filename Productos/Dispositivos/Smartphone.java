@@ -40,7 +40,7 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
             case "tomarFoto":
                 return this.tomarFoto();
             case "llamar":
-                this.llamar(Integer.parseInt(destino));
+                return this.llamar(Integer.parseInt(destino));
             default:
                 return "Algo salio mal al intentar usar el telefono. Pruebe de nuevo.";
         }

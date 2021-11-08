@@ -1,3 +1,5 @@
 Tablet;Tab;Samsung;3000;6;07/10/2021;BNSDNGD
 Smartwatch;Watch;Apple;6500;4;11/11/2020;CMSDMJD
 Celular;Frijolito;Nokia;150;5;15/05/2005;SSSSSS
+
+Smartphone;S21;Samsung;3500;Galaxy;31/10/2021;adsdassddsaa
