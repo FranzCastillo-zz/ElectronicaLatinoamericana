@@ -1,6 +1,10 @@
 import Productos.Producto;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class Vista {
     private Scanner scan;
@@ -209,10 +213,24 @@ public class Vista {
         prnt("Ingrese la serie del dispositivo:");
         return scan.nextLine();
     }
-    public String pedirFecha()
-    {
-        prnt("Ingrese la fecha de fabricación del dispositivo (en el formato dd/mm/yyyy):");
-        return scan.nextLine();
+    public String pedirFecha(){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        boolean ingresoValido = false;
+        Date temp = null;
+        while(!ingresoValido){
+            prnt("Ingrese la fecha de publicacion (dd/MM/yyyy)");
+            String fecha = scan.next();
+            try{
+                temp = formato.parse(fecha);
+                ingresoValido = true;
+            }catch(Exception e){
+                mostrarOpcionInvalida();
+            }
+        }
+        // CONVIERTE DE DATE A STRING
+        LocalDate localDate = temp.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        String fecha = localDate.getDayOfMonth() + "/" + localDate.getMonthValue() + "/" + localDate.getYear();
+        return fecha;
     }
     public String pedirMarcador()
     {
