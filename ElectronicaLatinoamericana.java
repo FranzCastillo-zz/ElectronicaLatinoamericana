@@ -11,7 +11,9 @@ public class ElectronicaLatinoamericana {
         carrito = new Carrito();
         v = new Vista();
     }
-    public void ejecutar(){        
+    public void ejecutar(){
+        // Telfono;iPhone;Apple
+
         productos.add(new Productos.Dispositivos.Smartphone("iPhone", "Apple", 1200, "11", "11/6/2021", "ARMSDMJD"));
         v.inicio();
         while(true){
@@ -69,11 +71,57 @@ public class ElectronicaLatinoamericana {
     private void probarProducto(Producto producto){
         boolean regresarSeleccionDeProducto = false;
         while(!regresarSeleccionDeProducto){
-            int funcion = v.mostrarMenuProbarProducto(producto); //DEVUELVE -1 SI EL USUARIO DESEA REGRESAR A LOS PRODUCTOS
-            if(funcion == -1){
-                regresarSeleccionDeProducto = true; //TERMINARIA EL CICLO DE LA FUNCION AL NO CUMPLIR CON EL WHILE
-            }else{    
-                v.mostrarPrueba(producto.probar(funcion));
+            int funcion = v.mostrarMenuProbarProducto(producto);
+            switch(funcion){
+                case 1: // Videojuego
+                    if(producto.ejecutaVidejouegos()){
+                        v.mostrarPrueba(producto.probar("ejecutarVideojuego", v.pedirJuego()));
+                        
+                    }else{
+                        v.mostrarProductoNoPuedeHacerFuncion();
+                    }
+                break;
+                case 2: // Llamar
+                    if(producto.haceLlamadas()){
+                        v.mostrarPrueba(producto.probar("llamar", v.pedirNumero()));
+                    }else{
+                        v.mostrarProductoNoPuedeHacerFuncion();
+                    }
+                break;
+                case 3: // Internet
+                    if(producto.navegaInternet()){
+                        v.mostrarPrueba(producto.probar("navegarInternet", v.pedirLink()));
+                    }else{
+                        v.mostrarProductoNoPuedeHacerFuncion();
+                    }                
+                break;
+                case 4: // Portable
+                    if(producto.esPortatil()){
+                        v.mostrarPrueba(producto.probar("portabilidad", ""));
+                    }else{
+                        v.mostrarProductoNoPuedeHacerFuncion();
+                    }                
+                break;
+                case 5: // Video
+                    if(producto.reproduceVideos()){
+                        v.mostrarPrueba(producto.probar("reproducirVideo", ""));
+                    }else{
+                        v.mostrarProductoNoPuedeHacerFuncion();
+                    }                
+                break;
+                case 6: // Foto
+                    if(producto.tomaFotos()){
+                        v.mostrarPrueba(producto.probar("tomarFoto", ""));
+                    }else{
+                        v.mostrarProductoNoPuedeHacerFuncion();
+                    }                
+                break;
+                case 7: // Salir
+                    regresarSeleccionDeProducto = true;
+                break;
+                default:
+                    v.mostrarOpcionInvalida();
+                break;
             }
         }
     }

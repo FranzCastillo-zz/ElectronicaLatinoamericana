@@ -6,6 +6,9 @@ import Productos.Interfaces.*;
 public class Desktop extends Producto implements NavegarInternet, ReproducirVideo, EjecutarVideojuego{
     public Desktop(String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
         super("Computadora de escritorio", nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
+        this.agregarFuncionalidad("Ejecutar Videojuegos");
+        this.agregarFuncionalidad("Navegar por Internet");
+        this.agregarFuncionalidad("Reproducir videos");
     }
     public String ejecutar(String juego) {
         String jugar = "Espero pueda jugar " + juego + " a 60 FPS...\n";
@@ -14,26 +17,51 @@ public class Desktop extends Producto implements NavegarInternet, ReproducirVide
         return jugar;
     }
     public String reproducir() {
-        String video = "*reproduciendo video desde mi Desktop " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";
-        return video;
+        return "*reproduciendo video desde mi Desktop " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";
     }
     public String navegar(String link) {
-        String navegar = "Ok... *entrando a " + link + " desde mi Desktop " + this.getNombre();
-        return navegar;
+        return "Ok... *entrando a " + link + " desde mi Desktop " + this.getNombre();
     }
-    /*public String[] getFuncionalidades() {
-        String[] funcionalidades = {"Ejecutar Videojuegos", "Navegar por Internet", "Reproduccion de video"};
-        return funcionalidades;
-    }*/
-    public String probar(int funcion) {
+    public String probar(String funcion, String destino) {
         switch(funcion){
-            case 1:
-                //return this.ejecutar();
-            case 2:
-                //return this.navegar();
-            case 3:
+            case "ejecutarVideojuego":
+                return this.ejecutar(destino);
+            case "navegarInternet":
+                return this.navegar(destino);
+            case "reproducirVideo":
                 return this.reproducir();
             default:
                 return "Algo salio mal al intentar probar el Desktop. Intente de nuevo";
-        }    }
+        }    
+    }
+    @Override
+    public boolean ejecutaVidejouegos() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+    @Override
+    public boolean haceLlamadas() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public boolean navegaInternet() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+    @Override
+    public boolean esPortatil() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public boolean tomaFotos() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public boolean reproduceVideos() {
+        // TODO Auto-generated method stub
+        return true;
+    }
 }
