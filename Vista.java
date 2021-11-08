@@ -155,4 +155,69 @@ public class Vista {
         prnt("Ingrese el juego que desa probar:");
         return scan.nextLine();
     }
+
+    public String pedirTipo()
+    {
+        String nombres[] = {"Camara", "Celular", "Desktop", "Laptop", "Smarthpone", "SmartTV", "Smartwatch", "Tablet", "TelefonoFijo"}; //array con los tipos de dispositivos disponibles
+        boolean bandera = false; //bandera para la validación
+        while(true)
+        {
+            prnt("Ingrese el tipo de dispositivo:");
+            String nombre = scan.nextLine(); //leer linea
+            for (int i = 0; i < nombres.length; i++) //validación
+            {
+                if(nombre.equals(nombres[i])) //si el nombre ingresado si está dentro del array
+                {
+                    bandera = true;
+                }
+            }
+            if(bandera == true) //el nombre es correcto
+            {
+                return nombre;
+            }
+            else
+            {
+                mostrarOpcionInvalida();
+            }
+        }
+    }
+    public String pedirNombre()
+    {
+        prnt("Ingrese el nombre del dispositivo:");
+        return scan.nextLine();
+    }
+    public String pedirMarca()
+    {
+        prnt("Ingrese la marca del dispositivo:");
+        return scan.nextLine();
+    }
+    public int pedirPrecio()
+    {
+        prnt("Ingrese el precio del dispositivo:");
+        try{
+            int opcion = scan.nextInt();
+            scan.nextLine();
+            return opcion;
+        }catch(Exception e){ //SI INGRESA ALGO QUE NO ES NUMERO
+            scan.next();
+            return -1;
+        }
+    }
+    public String pedirSerie()
+    {
+        prnt("Ingrese la serie del dispositivo:");
+        return scan.nextLine();
+    }
+    public String pedirFecha()
+    {
+        prnt("Ingrese la fecha de fabricación del dispositivo (en el formato dd/mm/yyyy):");
+        return scan.nextLine();
+    }
+    public String pedirMarcador()
+    {
+        prnt("Ingrese el marcador AR del dispositivo:");
+        return scan.nextLine();
+    }
+
+    
 }

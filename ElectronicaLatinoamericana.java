@@ -1,8 +1,11 @@
 import Productos.*;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.io.FileNotFoundException;     
-import java.io.FileWriter; 
+import java.io.FileWriter;
+import java.io.File;
+import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner14;
 
 public class ElectronicaLatinoamericana {
     private ArrayList<Producto> productos;
@@ -27,7 +30,8 @@ public class ElectronicaLatinoamericana {
                 case 1: //CREAR UN PRODUCTO
                     /*Camara c = new Camara();
                     productos.add(c);
-                    guardarProducto(c);*/
+                    guardarProducto(c);*/                   
+                    crearProducto();
                 break;
                 case 2: //VER PRODUCTO
                     verProducto();
@@ -55,17 +59,102 @@ public class ElectronicaLatinoamericana {
             {
                 lectura = lector.nextLine().split(";");
                 //convertir datos del archivo a objetos de clase Dispositivo
-                if (lectura[0].equals("Tablet"))
+                if (lectura[0].equals("Camara"))
                 {
-                    productos.add(new Productos.Dispositivos.Tablet());
+                    productos.add(new Productos.Dispositivos.Camara(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("Celular"))
+                {
+                    productos.add(new Productos.Dispositivos.Celular(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("Desktop"))
+                {
+                    productos.add(new Productos.Dispositivos.Desktop(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("Laptop"))
+                {
+                    productos.add(new Productos.Dispositivos.Laptop(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("Smartphone"))
+                {
+                    productos.add(new Productos.Dispositivos.Smartphone(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("SmartTV"))
+                {
+                    productos.add(new Productos.Dispositivos.SmartTV(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("Smartwatch"))
+                {
+                    productos.add(new Productos.Dispositivos.Smartwatch(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("Tablet"))
+                {
+                    productos.add(new Productos.Dispositivos.Tablet(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                }
+                else if (lectura[0].equals("TelefonoFijo"))
+                {
+                    productos.add(new Productos.Dispositivos.TelefonoFijo(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
                 }
             }
             lector.close(); //cerrar archivo
         } 
-        catch (FileNotFoundException e) 
+        catch (FileNotFoundException e) //no encuentra el archivo
         {
             v.mostrarErrorArchivo();
         }
+    }
+    private void crearProducto()
+    {
+        String tipo = v.pedirTipo();
+        String nombre = v.pedirNombre();
+        String marca = v.pedirMarca();
+        int precio = v.pedirPrecio();
+        if (precio != -1)
+        {
+            String serie = v.pedirSerie();
+            String fecha = v.pedirFecha();
+             String ar = v.pedirMarcador();
+            if (tipo.equals("Camara"))
+            {
+                productos.add(new Productos.Dispositivos.Camara(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("Celular"))
+            {
+                productos.add(new Productos.Dispositivos.Celular(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("Desktop"))
+            {
+                productos.add(new Productos.Dispositivos.Desktop(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("Laptop"))
+            {
+                productos.add(new Productos.Dispositivos.Laptop(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("Smartphone"))
+            {
+                productos.add(new Productos.Dispositivos.Smartphone(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("SmartTV"))
+            {
+                productos.add(new Productos.Dispositivos.SmartTV(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("Smartwatch"))
+            {
+                productos.add(new Productos.Dispositivos.Smartwatch(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("Tablet"))
+            {
+                productos.add(new Productos.Dispositivos.Tablet(nombre, marca, precio, serie, fecha, ar));
+            }
+            else if (tipo.equals("TelefonoFijo"))
+            {
+                productos.add(new Productos.Dispositivos.TelefonoFijo(nombre, marca, precio, serie, fecha, ar));
+            }
+        }
+        else
+        {
+            v.mostrarOpcionInvalida();
+        }               
     }
 
     private void verProducto(){
