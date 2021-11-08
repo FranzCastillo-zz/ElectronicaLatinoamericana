@@ -8,19 +8,32 @@ public class Desktop extends Producto implements NavegarInternet, ReproducirVide
         super("Computadora de escritorio", nombre, marca, precio, serie, fechaDeFabricacion, marcadorAR);
     }
     public String ejecutar(String juego) {
-        return null;
+        String jugar = "Espero pueda jugar " + juego + " a 60 FPS...\n";
+        jugar += "*ejecutando " + juego + " desde mi Desktop " + this.getNombre() + "*\n";
+        jugar += "El juego se ejecuta perfectamente!"; 
+        return jugar;
     }
     public String reproducir() {
-        return null;
+        String video = "*reproduciendo video desde mi Desktop " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";
+        return video;
     }
     public String navegar(String link) {
-        return null;
+        String navegar = "Ok... *entrando a " + link + " desde mi Desktop " + this.getNombre();
+        return navegar;
     }
-    public String[] getFuncionalidades() {
+    /*public String[] getFuncionalidades() {
         String[] funcionalidades = {"Ejecutar Videojuegos", "Navegar por Internet", "Reproduccion de video"};
         return funcionalidades;
-    }
+    }*/
     public String probar(int funcion) {
-        return null;
-    }
+        switch(funcion){
+            case 1:
+                //return this.ejecutar();
+            case 2:
+                //return this.navegar();
+            case 3:
+                return this.reproducir();
+            default:
+                return "Algo salio mal al intentar probar el Desktop. Intente de nuevo";
+        }    }
 }

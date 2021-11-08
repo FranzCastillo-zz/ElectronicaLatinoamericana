@@ -13,10 +13,10 @@ public class SmartTV extends Producto implements NavegarInternet, ReproducirVide
     public String navegar(String link) {
         return null;
     }
-    public String[] getFuncionalidades() {
+    /*public String[] getFuncionalidades() {
         String[] funcionalidades = {"Navegar por Internet", "Reproduccion de video"};
         return funcionalidades;
-    }
+    }*/
     public String probar(int funcion) {
         return null;
     }

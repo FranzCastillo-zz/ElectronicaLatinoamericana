@@ -16,10 +16,10 @@ public class Smartwatch extends Producto implements TomarFoto, Portable, HacerLl
     public String tomarFoto() {
         return null;
     }
-    public String[] getFuncionalidades() {
+    /*public String[] getFuncionalidades() {
         String[] funcionalidades = {"Toma de fotografias", "Portabilidad", "Realizar llamadas"};
         return funcionalidades;
-    }
+    }*/
     public String probar(int funcion) {
         return null;
     }

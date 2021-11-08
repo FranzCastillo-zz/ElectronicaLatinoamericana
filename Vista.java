@@ -91,7 +91,7 @@ public class Vista {
         prnt("-----------------------------------------------------------");
         prnt("Este producto cuenta con las siguientes funcionalidades: ");
         // CONVIERTE EL ARRAY DE FUNCIONALIDADES DE LOS PRODUCTOS EN UN ARRAYLIST
-        ArrayList<String> funcionalidades = new ArrayList<>(Arrays.asList(producto.getFuncionalidades()));
+        ArrayList<String> funcionalidades = new ArrayList<>(producto.getFuncionalidades());
         int i = 1; // LLEVA EL NUMERO DE LA FUNCION
         for (String funcion : funcionalidades) {
             prnt(i++ + ") " + funcion);

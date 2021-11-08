@@ -22,10 +22,10 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
     public String llamar(int numero) {
         return null;
     }
-    public String[] getFuncionalidades() {
+    /*public String[] getFuncionalidades() {
         String[] funcionalidades = {"Realizar llamadas", "Navegar por Internet", "Reproduccion de video", "Portabilidad", "Toma de fotografias"};
         return funcionalidades;
-    }
+    }*/
     public String probar(int funcion) {
         return null;
     }

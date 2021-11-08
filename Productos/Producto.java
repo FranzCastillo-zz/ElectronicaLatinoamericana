@@ -8,6 +8,8 @@
 
 package Productos;
 
+import java.util.ArrayList;
+
 public abstract class Producto {
     private String nombre;
     private String marca;
@@ -16,6 +18,7 @@ public abstract class Producto {
     private String fechaDeFabrticacion;
     private String marcadorAR;
     private String tipo;
+    private ArrayList<String> funcionalidades;
 
     public Producto(String tipo, String nombre, String marca, int precio, String serie, String fechaDeFabricacion, String marcadorAR){
         this.tipo = tipo;
@@ -25,6 +28,7 @@ public abstract class Producto {
         this.serie = serie;
         this.fechaDeFabrticacion = fechaDeFabricacion;
         this.marcadorAR = marcadorAR;
+
     }
     
     /** 
@@ -89,6 +93,21 @@ public abstract class Producto {
         resumen = this.tipo + " || " + this.nombre + " || " + this.marca + " || Q." + this.precio;
         return resumen;
     }
+
+    protected void agregarFuncionalidad(String funcionalidad){
+        this.funcionalidades.add(funcionalidad);
+    }
+
     public abstract String probar(int funcion);
-    public abstract String[] getFuncionalidades();
+    public ArrayList<String> getFuncionalidades(){
+        /*
+
+        Portabilidad
+        Reproduccion de Videos
+        Toma de Fotografias
+        Realizar Llamadas
+
+        */
+        return this.funcionalidades;
+    }
 }

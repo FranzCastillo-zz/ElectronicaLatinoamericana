@@ -11,7 +11,7 @@ public class ElectronicaLatinoamericana {
         carrito = new Carrito();
         v = new Vista();
     }
-    public void ejecutar(){
+    public void ejecutar(){        
         productos.add(new Productos.Dispositivos.Smartphone("iPhone", "Apple", 1200, "11", "11/6/2021", "ARMSDMJD"));
         v.inicio();
         while(true){

@@ -10,10 +10,10 @@ public class TelefonoFijo extends Producto implements HacerLlamadas{
     public String llamar(int numero) {
         return null;
     }
-    public String[] getFuncionalidades() {
+    /*public String[] getFuncionalidades() {
         String[] funcionalidades = {"Realizar llamadas"};
         return funcionalidades;
-    }
+    }*/
     public String probar(int funciones) {
         return null;
     }
