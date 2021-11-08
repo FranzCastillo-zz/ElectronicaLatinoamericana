@@ -20,6 +20,12 @@ public class Vista {
     public void mostrarOpcionInvalida(){
         prnt("Ha ingresado una opcion invalida. Por favor, pruebe de nuevo");
     }
+    
+    public void mostrarErrorArchivo()
+    {
+        prnt("Error de lectura del archivo. Por favor, pruebe de nuevo");
+    }
+
     public int mostarMenuPrincipal(){
         prnt("MENU PRINCIPAL:");
         prnt("Que desea hacer?\n");

@@ -1,10 +1,15 @@
 import Productos.*;
 import java.util.ArrayList;
+import java.io.IOException;
+import java.io.FileNotFoundException;     
+import java.io.FileWriter; 
 
 public class ElectronicaLatinoamericana {
     private ArrayList<Producto> productos;
     private Carrito carrito;
     private Vista v;
+    private String[] lectura;
+    private File archivo = new File("Productos.txt");
 
     public ElectronicaLatinoamericana(){
         productos = new ArrayList<>();
@@ -37,6 +42,30 @@ public class ElectronicaLatinoamericana {
             }
         }
     }
+
+    private void leerArchivo()
+    {
+        //validación
+        try 
+        {    
+            Scanner lector = new Scanner(archivo); //leer archivo
+            while (lector.hasNextLine()) //analizar archivo linea por linea
+            {
+                lectura = lector.nextLine().split(";");
+                //convertir datos del archivo a objetos de clase Dispositivo
+                if (lectura[0].equals("Tablet"))
+                {
+                    productos.add(new Productos.Dispositivos.Tablet());
+                }
+            }
+            lector.close(); //cerrar archivo
+        } 
+        catch (FileNotFoundException e) 
+        {
+            v.mostrarErrorArchivo();
+        }
+    }
+
     private void verProducto(){
         boolean regresarMenuPrincipal = false;
         while(!regresarMenuPrincipal){
