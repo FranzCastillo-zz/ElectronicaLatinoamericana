@@ -12,7 +12,7 @@ public class Laptop extends Producto implements NavegarInternet, EjecutarVideoju
         this.agregarFuncionalidad("Portabilidad");
     }
     public String portable() {
-        return "La laptop + " + this.getNombre() + " es portatil! Cabe perfectamente en el estuche incluido :). *la guarda*";
+        return "La laptop " + this.getNombre() + " es portatil! Cabe perfectamente en el estuche incluido :). *la guarda*";
     }
     public String reproducir() {
         return "*reproduciendo video desde mi Laptop " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";

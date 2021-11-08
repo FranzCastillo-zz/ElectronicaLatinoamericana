@@ -11,7 +11,7 @@ public class Camara extends Producto implements TomarFoto, ReproducirVideo, Port
         this.agregarFuncionalidad("Toma de Fotografias");
     }
     public String portable() {
-        return "La camara + " + this.getNombre() + " es portatil! Cabe perfectamente en el estuche incluido :). *la guarda*";
+        return "La camara " + this.getNombre() + " es portatil! Cabe perfectamente en el estuche incluido :). *la guarda*";
     }
     public String reproducir() {
         return "*reproduciendo video capturado con mi camara " + this.getNombre() + "* PERO VEAN ESA CALIDAD!";

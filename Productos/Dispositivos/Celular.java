@@ -10,7 +10,7 @@ public class Celular extends Producto implements HacerLlamadas, Portable{
         this.agregarFuncionalidad("Realizar Llamadas");
     }
     public String portable() {
-        return "El celular + " + this.getNombre() + " es portatil! Cabe perfectamente en la bolsa de tu pantalon :). *lo guarda*";
+        return "El celular " + this.getNombre() + " es portatil! Cabe perfectamente en la bolsa de tu pantalon :). *lo guarda*";
     }
     public String llamar(int numero) {
         String llamada = "*llamando al numero + " + numero + " con mi celular " + this.getNombre() + "*\n";

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.File;
 import java.util.Scanner;
+import java.io.IOException;
 
 import javax.lang.model.util.ElementScanner14;
 
@@ -20,17 +21,14 @@ public class ElectronicaLatinoamericana {
         v = new Vista();
     }
     public void ejecutar(){
-        // Telfono;iPhone;Apple
-
+        leerArchivo(); 
+        //Telfono;iPhone;Apple
         productos.add(new Productos.Dispositivos.Smartphone("iPhone", "Apple", 1200, "11", "11/6/2021", "ARMSDMJD"));
         v.inicio();
         while(true){
             int opcion = v.mostarMenuPrincipal();
             switch(opcion){
-                case 1: //CREAR UN PRODUCTO
-                    /*Camara c = new Camara();
-                    productos.add(c);
-                    guardarProducto(c);*/                   
+                case 1: //CREAR UN PRODUCTO                
                     crearProducto();
                 break;
                 case 2: //VER PRODUCTO
@@ -105,15 +103,17 @@ public class ElectronicaLatinoamericana {
     }
     private void crearProducto()
     {
+        //pedir datos
         String tipo = v.pedirTipo();
         String nombre = v.pedirNombre();
         String marca = v.pedirMarca();
         int precio = v.pedirPrecio();
-        if (precio != -1)
+        if (precio != -1) //el precio SI es un int
         {
-            String serie = v.pedirSerie();
+            String serie = v.pedirSerie(); //sigue pidiendo datos
             String fecha = v.pedirFecha();
-             String ar = v.pedirMarcador();
+            String ar = v.pedirMarcador();
+             //crear e ingresar producto
             if (tipo.equals("Camara"))
             {
                 productos.add(new Productos.Dispositivos.Camara(nombre, marca, precio, serie, fecha, ar));
@@ -150,11 +150,29 @@ public class ElectronicaLatinoamericana {
             {
                 productos.add(new Productos.Dispositivos.TelefonoFijo(nombre, marca, precio, serie, fecha, ar));
             }
+            String cadena = tipo + ";" + nombre + ";" + marca + ";" + Integer.toString(precio) + ";" + serie + ";" + fecha + ";" + ar;
+            escribirProducto(cadena);
+
         }
-        else
+        else //el precio NO es un int
         {
             v.mostrarOpcionInvalida();
         }               
+    }
+    private void escribirProducto(String cadena)
+    {
+        //validación
+        try 
+        {    
+            FileWriter escritor = new FileWriter("Productos.txt", true);
+            escritor.write("\n");
+            escritor.write(cadena);
+            escritor.close();
+        } 
+        catch (IOException e) //no encuentra el archivo
+        {
+            v.mostrarErrorArchivo();
+        }
     }
 
     private void verProducto(){
