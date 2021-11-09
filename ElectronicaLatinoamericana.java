@@ -30,6 +30,7 @@ public class ElectronicaLatinoamericana {
                     verProducto();
                 break;
                 case 3: //MOSTAR CARRITO DE COMPRA
+                    mostrarCarrito();
                 break;
                 case 4: //SALIR
                     v.fin();
@@ -170,7 +171,6 @@ public class ElectronicaLatinoamericana {
             v.mostrarErrorArchivo();
         }
     }
-
     private void verProducto(){
         boolean regresarMenuPrincipal = false;
         while(!regresarMenuPrincipal){
@@ -257,7 +257,35 @@ public class ElectronicaLatinoamericana {
             }
         }
     }
-    private void guardarProducto(Producto producto){ //GUARDAR EN EL ARCHIVO
-
+    private void mostrarCarrito(){
+        boolean regresarMenuPrincipal = false;
+        while(!regresarMenuPrincipal){
+            int opcion = v.mostrarMenuMostrarCarrito();
+            boolean ingresoValido = false;
+            while(!ingresoValido){
+                switch(opcion){
+                    case 1: // VER PRODUCTOS
+                        v.mostrarProductosCarrito(carrito.getProductos());
+                        ingresoValido = true;
+                    break;
+                    case 2: // FINALIZAR COMPRA
+                        finalizarCompra();
+                        ingresoValido = true;
+                    break;
+                    case 3: // REGRESAR
+                        ingresoValido = true;
+                        regresarMenuPrincipal = true;
+                    break;
+                    default:
+                        v.mostrarOpcionInvalida();
+                        ingresoValido = true;
+                    break;
+                }
+            }
+        }
+    }
+    private void finalizarCompra(){
+        ArrayList<Sucursal> sucursales = new ArrayList<>();
+        
     }
 }

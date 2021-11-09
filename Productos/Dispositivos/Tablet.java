@@ -68,5 +68,13 @@ public class Tablet extends Producto implements TomarFoto, NavegarInternet, Repr
         // TODO Auto-generated method stub
         return true;
     }
-    
+    public int compareTo(Producto o) {
+        if(this.getPrecio() > o.getPrecio()){
+            return 1;
+        }else if(this.getPrecio() < o.getPrecio()){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
 }

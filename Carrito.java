@@ -1,5 +1,6 @@
 import Productos.Producto;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Carrito{
     private ArrayList<Producto> productos;
@@ -7,15 +8,11 @@ public class Carrito{
     public Carrito(){
         productos = new ArrayList<>();
     }
-
-    private void ordenar(){
-
-    }
-    
     /** 
      * @return Arraylist<Producto> Los productos que se encuentran actualmente en el carrito
      */
-    public ArrayList<Producto> getCarrito(){
+    public ArrayList<Producto> getProductos(){
+        Collections.sort(productos);
         return this.productos;
     }
     
@@ -34,6 +31,6 @@ public class Carrito{
      * @param producto El producto que se agregara al carrito
      */
     public void agregarAlCarrito(Producto producto){
-
+        productos.add(producto);
     }
 }

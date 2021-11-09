@@ -75,5 +75,13 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
         // TODO Auto-generated method stub
         return true;
     }
-    
+    public int compareTo(Producto o) {
+        if(this.getPrecio() > o.getPrecio()){
+            return 1;
+        }else if(this.getPrecio() < o.getPrecio()){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
 }

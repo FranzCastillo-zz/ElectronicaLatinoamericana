@@ -296,6 +296,35 @@ public class Vista {
             }
         }
     }
-
-    
+    public int mostrarMenuMostrarCarrito(){
+        prnt("---------------------------------------------------------------------");
+        prnt("Menu del Carrito:");
+        prnt("1) Ver productos en el carrito");
+        prnt("2) Finalizar Compra");
+        prnt("3) Regresar a menu principal");
+        prnt("---------------------------------------------------------------------");
+        while(true){
+            prnt("Que desea hacer?");
+            try{
+                int opcion = scan.nextInt();
+                scan.nextLine();
+                if(opcion >= 1 && opcion <= 3){
+                    return opcion;
+                }else{
+                    mostrarOpcionInvalida();
+                }
+            }catch(Exception e){ //SI INGRESA ALGO QUE NO ES NUMERO
+                scan.next();
+                mostrarOpcionInvalida();
+            }
+        }
+    }
+    public void mostrarProductosCarrito(ArrayList<Producto> productos){
+        prnt("----------------- PRODUCTOS EN EL CARRITO -----------------");
+        int i = 1;
+        for (Producto producto : productos) {
+            prnt(i++ + ") " + producto.getResumen());
+        }
+        prnt("-----------------------------------------------------------");
+    }
 }

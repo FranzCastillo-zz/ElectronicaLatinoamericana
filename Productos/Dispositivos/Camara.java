@@ -1,5 +1,4 @@
 package Productos.Dispositivos;
-
 import Productos.Producto;
 import Productos.Interfaces.*;
 
@@ -60,5 +59,15 @@ public class Camara extends Producto implements TomarFoto, ReproducirVideo, Port
     public boolean reproduceVideos() {
         // TODO Auto-generated method stub
         return true;
+    }
+    @Override
+    public int compareTo(Producto o) {
+        if(this.getPrecio() > o.getPrecio()){
+            return 1;
+        }else if(this.getPrecio() < o.getPrecio()){
+            return -1;
+        }else{
+            return 0;
+        }
     }
 }

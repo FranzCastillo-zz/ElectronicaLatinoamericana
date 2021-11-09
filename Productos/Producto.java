@@ -10,7 +10,7 @@ package Productos;
 
 import java.util.ArrayList;
 
-public abstract class Producto {
+public abstract class Producto implements Comparable<Producto> {
     private String nombre;
     private String marca;
     private int precio;
@@ -48,7 +48,7 @@ public abstract class Producto {
     /** 
      * @return int El precio del producto
      */
-    protected int getPrecio(){
+    public int getPrecio(){
         return this.precio;
     }
     
