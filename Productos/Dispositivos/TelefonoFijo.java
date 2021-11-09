@@ -16,7 +16,7 @@ public class TelefonoFijo extends Producto implements HacerLlamadas{
         this.agregarFuncionalidad("Realizacion de Llamadas");
     }
     public String llamar(int numero) {
-        String llamada = "*llamando al numero + " + numero + " con mi telefono fijo " + this.getNombre() + "*\n";
+        String llamada = "*llamando al numero " + numero + " con mi telefono fijo " + this.getNombre() + "*\n";
         llamada += "*El telefono al que intenta marcar no esta disponible en este momento*";
         return llamada;
     }
