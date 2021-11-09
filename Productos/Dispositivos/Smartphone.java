@@ -14,37 +14,37 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
     }
     
     /** 
-     * @return String
+     * @return String el resultado de probar la portabilidad
      */
     public String portable() {
         return "Es tan delgado que cabe en tu bolsillo!";
     }
     
     /** 
-     * @return String
+     * @return String el resultado de probar la reproduccion del video
      */
     public String reproducir() {
         return "*reproduciendo el video capturado con mi Smartphone " + this.getNombre() + "*\nTiene una pantalla HERMOSA";
     }
     
     /** 
-     * @param link
-     * @return String
+     * @param link el link al que se desea navegar
+     * @return String el resultado de probar la navegacion de internet
      */
     public String navegar(String link) {
         return "Ok... *entrando a " + link + " desde mi Smartphone " + this.getNombre();
     }
     
     /** 
-     * @return String
+     * @return String el resultado de probar tomar una fotografia
      */
     public String tomarFoto() {
         return "Say CHEESE :D *le toma la foto con el smartphone " + this.getNombre() + "* SE VE GENIAL!";
     }
     
     /** 
-     * @param numero
-     * @return String
+     * @param numero el numero al que se desea llamar
+     * @return String el resultado de probar realizar una llamada
      */
     public String llamar(int numero) {
         String llamada = "*llamando al numero + " + numero + " con mi smartphone " + this.getNombre() + "*\n";
@@ -53,9 +53,9 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
     }
     
     /** 
-     * @param funcion
-     * @param destino
-     * @return String
+     * @param funcion la funcionalidad que se desea probar
+     * @param destino el destino de la accion
+     * @return String el resultado de probar la funcionalidad
      */
     public String probar(String funcion, String destino) {
         switch(funcion){
@@ -129,8 +129,8 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
     }
     
     /** 
-     * @param o
-     * @return int
+     * @param o el objeto  con el que se compara
+     * @return int el resultado de la comparacion
      */
     public int compareTo(Producto o) {
         if(this.getPrecio() > o.getPrecio()){
