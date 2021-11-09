@@ -1,3 +1,10 @@
+/* Nombre: ElectronicaLatinoamericana.java
+ * Programadores: Fernanda Esquivel y Francisco Castillo
+ * Lenguaje: Java
+ * Recursos: Visual Studio Code
+ * Historial: Finalizado el 05.11.2021
+              Modificado el 08.11.2021 */
+
 import Productos.*;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;     
@@ -346,9 +353,6 @@ public class ElectronicaLatinoamericana {
         }
         return total;
     }
-    // AQUI TIENE QUE AGREGAR CADA SUCURSAL AL ARRAYLIST SUCURSALES
-    // SE GUARDAN EN EL ARCHIVO DE LA SIGUIENTE MANERA
-    // direccion;codigo;pais;ciudad;nombreSucursal
     private void leerSucursales()
     {
         //validación

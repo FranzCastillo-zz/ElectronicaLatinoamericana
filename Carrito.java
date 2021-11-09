@@ -1,3 +1,10 @@
+/* Nombre: Carrito.java
+ * Programadores: Fernanda Esquivel y Francisco Castillo
+ * Lenguaje: Java
+ * Recursos: Visual Studio Code
+ * Historial: Finalizado el 05.11.2021
+              Modificado el 08.11.2021 */
+
 import Productos.Producto;
 import java.util.ArrayList;
 import java.util.Collections;

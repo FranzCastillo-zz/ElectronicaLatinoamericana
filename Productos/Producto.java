@@ -1,10 +1,9 @@
-/*
-
-    Francisco Castillo 21562 y Fernanda Esquivel 21548
-    Producto.java
-    Clase madre que modela todos los productos.
-
-*/
+/* Nombre: Producto.java
+ * Programadores: Fernanda Esquivel y Francisco Castillo
+ * Lenguaje: Java
+ * Recursos: Visual Studio Code
+ * Historial: Finalizado el 05.11.2021
+              Modificado el 08.11.2021 */
 
 package Productos;
 
