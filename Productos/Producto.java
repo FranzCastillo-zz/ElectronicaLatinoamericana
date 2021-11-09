@@ -93,11 +93,24 @@ public abstract class Producto implements Comparable<Producto> {
         return resumen;
     }
 
+    
+    /** 
+     * @param funcionalidad Se agrega a las funcionalidades del producto
+     */
     protected void agregarFuncionalidad(String funcionalidad){
         this.funcionalidades.add(funcionalidad);
     }
 
+    
+    /** 
+     * @param funcion La funcion que se desea probar
+     * @return String El resultado de la accion de probar
+     */
     public abstract String probar(String funcion, String destino);
+    
+    /** 
+     * @return ArrayList<String> Las funcionalidades con las que cuenta el producto
+     */
     public ArrayList<String> getFuncionalidades(){
         return this.funcionalidades;
     }

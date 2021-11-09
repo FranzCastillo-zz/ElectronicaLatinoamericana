@@ -18,19 +18,42 @@ public class Tablet extends Producto implements TomarFoto, NavegarInternet, Repr
         this.agregarFuncionalidad("Navegacion por Internet");
         this.agregarFuncionalidad("Toma de Fotografias");
     }
+    
+    /** 
+     * @return String El resultado de probar su portabilidad
+     */
     public String portable() {
         return "Es muy delgado! Es bastante portatil";
     }
+    
+    /** 
+     * @return String el resultado de reproducir un video
+     */
     public String reproducir() {
         return "*reproduciendo el video capturado con mi Tablet " + this.getNombre() + "*\nTiene una pantalla HERMOSA";
     }
+    
+    /** 
+     * @param link el link al que navegara en internet
+     * @return String el resultado de navegar
+     */
     public String navegar(String link) {
         return "Ok... *entrando a " + link + " desde mi Tablet " + this.getNombre();
     }
+    
+    /** 
+     * @return String El resutlado de tomar una foto
+     */
     public String tomarFoto() {
         return "Say CHEESE :D *le toma la foto con la Tablet " + this.getNombre() + "* SE VE GENIAL!";
     }
 
+    
+    /** 
+     * @param funcion La fuincionalidad que se desea probar
+     * @param destino el destino de la accion
+     * @return String El resultado de realizar la accionm
+     */
     public String probar(String funcion, String destino) {
         switch(funcion){
             case "portabilidad":
@@ -45,36 +68,65 @@ public class Tablet extends Producto implements TomarFoto, NavegarInternet, Repr
                 return "Algo salio mal al intentar usar el telefono. Pruebe de nuevo.";
         }    
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean ejecutaVidejouegos() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean haceLlamadas() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean navegaInternet() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean esPortatil() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean tomaFotos() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean reproduceVideos() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @param o Objeto con el que se compara
+     * @return int Resultado de la comparacion
+     */
     public int compareTo(Producto o) {
         if(this.getPrecio() > o.getPrecio()){
             return 1;
