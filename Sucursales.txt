@@ -1,0 +1,8 @@
+Calle Avenue;01234;Guatemala;Mixco;Sancris
+Calle cero;000;Costa Rica;San Jose;CR
+Calle uno;111;El Salvador;San Salvador;Pupusa
+Calle dos;222;Honduras;Roatan;Playa
+Avenida tres;333;Nicaragua;Nicaragua;Nica
+Avenida cuatro;444;Mexico;DF;CDMX
+Avenida cinco;555;Peru;Lima;Paloma
+Avenida seis;661;Argentina;Buenos Aires;Empanada

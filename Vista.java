@@ -333,14 +333,13 @@ public class Vista {
         for (Sucursal sucursal : sucursales) {
             prnt(i++ + ") " + sucursal.getDetalles() );
         }
-        prnt(i + ") Ingresar nueva Sucursal");
         while(true){
             prnt("\nIngrese la sucursal deseada:");
             try{
                 int opcion = scan.nextInt();
                 scan.nextLine();
                 if(opcion >= 1 && opcion <= i){
-                    return sucursales.get(i -1);
+                    return sucursales.get(opcion - 1);
                 }else{
                     mostrarOpcionInvalida();
                 }
@@ -349,5 +348,160 @@ public class Vista {
                 mostrarOpcionInvalida();
             }
         }
+    }
+
+    public int menuSucursales()
+    {
+        prnt("Que desea hacer?");
+        prnt("1) Ingresar sucursal");
+        prnt("2) Utilizar sucursal del sistema");
+        try{
+            int opcion = scan.nextInt();
+            scan.nextLine();
+            return opcion;
+        }catch(Exception e){ //SI INGRESA ALGO QUE NO ES NUMERO
+            scan.next();
+            return -1;
+        }
+    }
+    public String pedirDireccion()
+    {
+        while(true)
+        {
+            prnt("Ingrese la dirreccion de la sucursal:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+    public int pedirCodigo()
+    {
+        prnt("Ingrese el código de la sucursal:");
+        try{
+            int opcion = scan.nextInt();
+            scan.nextLine();
+            return opcion;
+        }catch(Exception e){ //SI INGRESA ALGO QUE NO ES NUMERO
+            scan.next();
+            return -1;
+        }
+    }
+    public String pedirPais()
+    {
+        while(true)
+        {
+            prnt("Ingrese el pais de la sucursal:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+    public String pedirCiudad()
+    {
+        while(true)
+        {
+            prnt("Ingrese la ciudad de la sucursal:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+    public String pedirNombreSucursal()
+    {
+        while(true)
+        {
+            prnt("Ingrese el nombre de la sucursal:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+    public String pedirNombreCliente()
+    {
+        while(true)
+        {
+            prnt("\nIngrese el nombre para la factura:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+    public String pedirNIT()
+    {
+        while(true)
+        {
+            prnt("Ingrese el NIT para la factura:");
+            String str = scan.nextLine();
+            if (str.equals(""))
+            {
+                mostrarOpcionInvalida();
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+    public String pedirFechaFactura(){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        boolean ingresoValido = false;
+        Date temp = null;
+        while(!ingresoValido){
+            prnt("Ingrese la fecha para la factura (dd/MM/yyyy)");
+            String fecha = scan.nextLine();
+            try{
+                temp = formato.parse(fecha);
+                ingresoValido = true;
+            }catch(Exception e){
+                mostrarOpcionInvalida();
+            }
+        }
+        // CONVIERTE DE DATE A STRING
+        LocalDate localDate = temp.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        String fecha = localDate.getDayOfMonth() + "/" + localDate.getMonthValue() + "/" + localDate.getYear();
+        return fecha;
+    }
+
+    public void mostrarFactura(Sucursal sucursal, String nombreCliente, String nit, String fechaEmision, int numeroFactura, int montoTotal)
+    {
+        prnt("---------------- FACTURA --------------------");
+        prnt(sucursal.getDetalles());
+        prnt("Nombre: " + nombreCliente);
+        prnt("NIT: " + nit);
+        prnt("Fecha de emision: " + fechaEmision);
+        prnt("Factura No. " + numeroFactura);
+        prnt("---------------------------------------------");
+        prnt("Total a pagar: Q." + montoTotal);
+        prnt("---------------------------------------------");
     }
 }

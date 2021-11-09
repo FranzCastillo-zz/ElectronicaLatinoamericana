@@ -5,23 +5,32 @@ import java.io.FileWriter;
 import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
+import java.util.Random;
+
 public class ElectronicaLatinoamericana {
     private ArrayList<Producto> productos;
     private Carrito carrito;
     private Vista v;
-    private String[] lectura;
-    private File archivo;
+    private String[] lecturaProductos;
+    private String[] lecturaSucursales;
+    private File archivoProductos;
+    private File archivoSucursales;
     ArrayList<Sucursal> sucursales;
+    private Sucursal sucursalActual;
+    Random rnd;
 
     public ElectronicaLatinoamericana(){
-        archivo = new File("Productos.txt");
+        archivoProductos = new File("Productos.txt");
+        archivoSucursales = new File("Sucursales.txt");
         sucursales = new ArrayList<>();
         productos = new ArrayList<>();
         carrito = new Carrito();
         v = new Vista();
+        rnd = new Random();
     }
     public void ejecutar(){
-        leerArchivo(); 
+        leerProductos();
+        leerSucursales(); 
         v.inicio();
         while(true){
             int opcion = v.mostarMenuPrincipal();
@@ -46,51 +55,51 @@ public class ElectronicaLatinoamericana {
         }
     }
 
-    private void leerArchivo()
+    private void leerProductos()
     {
         //validación
         try 
         {    
-            Scanner lector = new Scanner(archivo); //leer archivo
+            Scanner lector = new Scanner(archivoProductos); //leer archivo
             while (lector.hasNextLine()) //analizar archivo linea por linea
             {
-                lectura = lector.nextLine().split(";");
+                lecturaProductos = lector.nextLine().split(";");
                 //convertir datos del archivo a objetos de clase Dispositivo
-                if (lectura[0].equals("Camara"))
+                if (lecturaProductos[0].equals("Camara"))
                 {
-                    productos.add(new Productos.Dispositivos.Camara(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Camara(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("Celular"))
+                else if (lecturaProductos[0].equals("Celular"))
                 {
-                    productos.add(new Productos.Dispositivos.Celular(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Celular(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("Desktop"))
+                else if (lecturaProductos[0].equals("Desktop"))
                 {
-                    productos.add(new Productos.Dispositivos.Desktop(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Desktop(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("Laptop"))
+                else if (lecturaProductos[0].equals("Laptop"))
                 {
-                    productos.add(new Productos.Dispositivos.Laptop(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Laptop(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("Smartphone"))
+                else if (lecturaProductos[0].equals("Smartphone"))
                 {
-                    productos.add(new Productos.Dispositivos.Smartphone(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Smartphone(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("SmartTV"))
+                else if (lecturaProductos[0].equals("SmartTV"))
                 {
-                    productos.add(new Productos.Dispositivos.SmartTV(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.SmartTV(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("Smartwatch"))
+                else if (lecturaProductos[0].equals("Smartwatch"))
                 {
-                    productos.add(new Productos.Dispositivos.Smartwatch(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Smartwatch(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("Tablet"))
+                else if (lecturaProductos[0].equals("Tablet"))
                 {
-                    productos.add(new Productos.Dispositivos.Tablet(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.Tablet(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
-                else if (lectura[0].equals("TelefonoFijo"))
+                else if (lecturaProductos[0].equals("TelefonoFijo"))
                 {
-                    productos.add(new Productos.Dispositivos.TelefonoFijo(lectura[1], lectura[2], Integer.parseInt(lectura[3]), lectura[4], lectura[5], lectura[6] ));
+                    productos.add(new Productos.Dispositivos.TelefonoFijo(lecturaProductos[1], lecturaProductos[2], Integer.parseInt(lecturaProductos[3]), lecturaProductos[4], lecturaProductos[5], lecturaProductos[6] ));
                 }
             }
             lector.close(); //cerrar archivo
@@ -151,7 +160,7 @@ public class ElectronicaLatinoamericana {
             }
             //cadena con los datos
             String cadena = tipo + ";" + nombre + ";" + marca + ";" + Integer.toString(precio) + ";" + serie + ";" + fecha + ";" + ar;
-            escribirProducto(cadena); //ingresar cadena al archivo
+            escribirArchivo(cadena, "Productos.txt"); //ingresar cadena al archivo
 
         }
         else //el precio NO es un int
@@ -159,12 +168,12 @@ public class ElectronicaLatinoamericana {
             v.mostrarOpcionInvalida();
         }               
     }
-    private void escribirProducto(String cadena)
+    private void escribirArchivo(String cadena, String archivo)
     {
         //validación
         try 
         {    
-            FileWriter escritor = new FileWriter("Productos.txt", true); //escritor append (concatena, no reescribe)
+            FileWriter escritor = new FileWriter(archivo, true); //escritor append (concatena, no reescribe)
             escritor.write("\n"); //escribir salto de linea
             escritor.write(cadena); //escribir cadena
             escritor.close();
@@ -287,17 +296,76 @@ public class ElectronicaLatinoamericana {
             }
         }
     }
-    private void finalizarCompra(){
-        leerSucursales();
-        Sucursal sucursalActual = v.mostrarSeleccionDeSucursal(sucursales);
-        // PARA UTILIZAR LOS DATOS DE LA SUCURSAL HAY QUE CREARLE UN METODO, YA TIENE .getDetalles() Pero TIENE GETTERS DE TODA LA INFO
-        //  PARA PONERLA EN LA FACTURA COMO DESEES
+    private void finalizarCompra()
+    {
+        boolean sucursalSeleccionada = false;
+        while(sucursalSeleccionada == false){
+            int opcion = v.menuSucursales();
+            switch(opcion){
+                case 1: //crear sucursal    
+                //Pedir datos sucursal
+                String direccion = v.pedirDireccion();
+                int codigo = v.pedirCodigo();
+                String pais = v.pedirPais();
+                String ciudad = v.pedirCiudad();
+                String nombreSucursal = v.pedirNombreSucursal();        
+                sucursalActual = new Sucursal(direccion, codigo, pais, ciudad, nombreSucursal); //crear sucursal y agregar al array
+                sucursales.add(sucursalActual);
+                String cadena = direccion + ";" + Integer.toString(codigo) + ";" + pais + ";" + ciudad + ";" + nombreSucursal;
+                escribirArchivo(cadena, "Sucursales.txt");
+                sucursalSeleccionada = true;
+                break;
+                case 2: //usar sucursal del sistema
+                    sucursalActual = v.mostrarSeleccionDeSucursal(sucursales);
+                    sucursalSeleccionada = true;
+                break;
+                default:
+                    v.mostrarOpcionInvalida();
+                break;
+            }
+        }
 
+        //Pedir datos de la factura
+        String nombreCliente = v.pedirNombreCliente();
+        String nit = v.pedirNIT();
+        String fechaEmision = v.pedirFechaFactura();
+        int numeroFactura = rnd.nextInt(99999);
+        int montoTotal = getMontoTotal();
+        v.mostrarFactura(sucursalActual, nombreCliente, nit, fechaEmision, numeroFactura, montoTotal);
+
+        //El programa finaliza
+        v.fin();
+        System.exit(1);
+    }
+    private int getMontoTotal()
+    {
+        int total = 0;
+        for (int i = 0; i < carrito.getProductos().size(); i++)
+        {
+            total += carrito.getProductos().get(i).getPrecio();
+        }
+        return total;
     }
     // AQUI TIENE QUE AGREGAR CADA SUCURSAL AL ARRAYLIST SUCURSALES
     // SE GUARDAN EN EL ARCHIVO DE LA SIGUIENTE MANERA
     // direccion;codigo;pais;ciudad;nombreSucursal
-    private void leerSucursales(){
-        //sucursales.add(new Sucursal(direccion, codigo, pais, ciudad, nombreSucursal))
+    private void leerSucursales()
+    {
+        //validación
+        try 
+        {    
+            Scanner lector = new Scanner(archivoSucursales); //leer archivo
+            while (lector.hasNextLine()) //analizar archivo linea por linea
+            {
+                lecturaSucursales = lector.nextLine().split(";");
+                //convertir datos del archivo a objetos de clase Sucursal
+                sucursales.add(new Sucursal(lecturaSucursales[0], Integer.parseInt(lecturaSucursales[1]), lecturaSucursales[2], lecturaSucursales[3], lecturaSucursales[4]));
+            }
+            lector.close(); //cerrar archivo
+        } 
+        catch (FileNotFoundException e) //no encuentra el archivo
+        {
+            v.mostrarErrorArchivo();
+        }
     }
 }
