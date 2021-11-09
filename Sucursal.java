@@ -47,4 +47,7 @@ public class Sucursal {
     public String getNombreSucursal(){
         return this.nombreSucursal;
     }
+    public String getDetalles(){
+        return "Sucursal: " + this.getNombreSucursal() + " || Direccion: " + this.getDireccion();
+    }
 }

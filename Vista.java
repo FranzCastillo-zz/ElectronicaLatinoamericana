@@ -327,4 +327,27 @@ public class Vista {
         }
         prnt("-----------------------------------------------------------");
     }
+    public Sucursal mostrarSeleccionDeSucursal(ArrayList<Sucursal> sucursales){
+        prnt("---------------- SUCURSALES DISPONIBLES --------------------");
+        int i = 1;
+        for (Sucursal sucursal : sucursales) {
+            prnt(i++ + ") " + sucursal.getDetalles() );
+        }
+        prnt(i + ") Ingresar nueva Sucursal");
+        while(true){
+            prnt("\nIngrese la sucursal deseada:");
+            try{
+                int opcion = scan.nextInt();
+                scan.nextLine();
+                if(opcion >= 1 && opcion <= i){
+                    return sucursales.get(i -1);
+                }else{
+                    mostrarOpcionInvalida();
+                }
+            }catch(Exception e){
+                scan.next();
+                mostrarOpcionInvalida();
+            }
+        }
+    }
 }

@@ -10,9 +10,12 @@ public class ElectronicaLatinoamericana {
     private Carrito carrito;
     private Vista v;
     private String[] lectura;
-    private File archivo = new File("Productos.txt");
+    private File archivo;
+    ArrayList<Sucursal> sucursales;
 
     public ElectronicaLatinoamericana(){
+        archivo = new File("Productos.txt");
+        sucursales = new ArrayList<>();
         productos = new ArrayList<>();
         carrito = new Carrito();
         v = new Vista();
@@ -285,7 +288,16 @@ public class ElectronicaLatinoamericana {
         }
     }
     private void finalizarCompra(){
-        ArrayList<Sucursal> sucursales = new ArrayList<>();
-        
+        leerSucursales();
+        Sucursal sucursalActual = v.mostrarSeleccionDeSucursal(sucursales);
+        // PARA UTILIZAR LOS DATOS DE LA SUCURSAL HAY QUE CREARLE UN METODO, YA TIENE .getDetalles() Pero TIENE GETTERS DE TODA LA INFO
+        //  PARA PONERLA EN LA FACTURA COMO DESEES
+
+    }
+    // AQUI TIENE QUE AGREGAR CADA SUCURSAL AL ARRAYLIST SUCURSALES
+    // SE GUARDAN EN EL ARCHIVO DE LA SIGUIENTE MANERA
+    // direccion;codigo;pais;ciudad;nombreSucursal
+    private void leerSucursales(){
+        //sucursales.add(new Sucursal(direccion, codigo, pais, ciudad, nombreSucursal))
     }
 }
