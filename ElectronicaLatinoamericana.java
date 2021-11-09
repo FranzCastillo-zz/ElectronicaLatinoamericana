@@ -338,7 +338,7 @@ public class ElectronicaLatinoamericana {
         String fechaEmision = v.pedirFechaFactura();
         int numeroFactura = rnd.nextInt(99999);
         int montoTotal = getMontoTotal();
-        v.mostrarFactura(sucursalActual, nombreCliente, nit, fechaEmision, numeroFactura, montoTotal);
+        v.mostrarFactura(sucursalActual, nombreCliente, nit, fechaEmision, numeroFactura, montoTotal, carrito);
 
         //El programa finaliza
         v.fin();

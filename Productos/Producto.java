@@ -33,7 +33,7 @@ public abstract class Producto implements Comparable<Producto> {
     /** 
      * @return String El nombre del producto
      */
-    protected String getNombre(){
+    public String getNombre(){
         return this.nombre;
     }
     

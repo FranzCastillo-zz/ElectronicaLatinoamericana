@@ -499,7 +499,7 @@ public class Vista {
         return fecha;
     }
 
-    public void mostrarFactura(Sucursal sucursal, String nombreCliente, String nit, String fechaEmision, int numeroFactura, int montoTotal)
+    public void mostrarFactura(Sucursal sucursal, String nombreCliente, String nit, String fechaEmision, int numeroFactura, int montoTotal, Carrito carrito)
     {
         prnt("---------------- FACTURA --------------------");
         prnt(sucursal.getDetalles());
@@ -507,6 +507,14 @@ public class Vista {
         prnt("NIT: " + nit);
         prnt("Fecha de emision: " + fechaEmision);
         prnt("Factura No. " + numeroFactura);
+        prnt("---------------------------------------------");
+        if (carrito.getProductos().isEmpty() == false)
+        {
+            for (int i = 0; i < carrito.getProductos().size(); i++)
+            {
+                prnt(carrito.getProductos().get(i).getNombre() + "............ Q" + carrito.getProductos().get(i).getPrecio());
+            }
+        }
         prnt("---------------------------------------------");
         prnt("Total a pagar: Q." + montoTotal);
         prnt("---------------------------------------------");
