@@ -175,6 +175,9 @@ public class ElectronicaLatinoamericana {
             v.mostrarOpcionInvalida();
         }               
     }
+    /** 
+     * @param cadena La cadena de datos a escribir en el archivo
+     */
     private void escribirArchivo(String cadena, String archivo)
     {
         //validación
@@ -219,6 +222,10 @@ public class ElectronicaLatinoamericana {
             }
         }
     }
+    
+    /** 
+     * @param producto el producto que se probara
+     */
     private void probarProducto(Producto producto){
         boolean regresarSeleccionDeProducto = false;
         while(!regresarSeleccionDeProducto){

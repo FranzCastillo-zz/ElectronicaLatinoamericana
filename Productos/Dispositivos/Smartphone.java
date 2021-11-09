@@ -1,10 +1,3 @@
-/* Nombre: Smartphone.java
- * Programadores: Fernanda Esquivel y Francisco Castillo
- * Lenguaje: Java
- * Recursos: Visual Studio Code
- * Historial: Finalizado el 05.11.2021
-              Modificado el 08.11.2021 */
-
 package Productos.Dispositivos;
 
 import Productos.*;
@@ -19,23 +12,51 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
         this.agregarFuncionalidad("Tomar Fotografias");
         this.agregarFuncionalidad("Realizar Llamadas");
     }
+    
+    /** 
+     * @return String
+     */
     public String portable() {
         return "Es tan delgado que cabe en tu bolsillo!";
     }
+    
+    /** 
+     * @return String
+     */
     public String reproducir() {
         return "*reproduciendo el video capturado con mi Smartphone " + this.getNombre() + "*\nTiene una pantalla HERMOSA";
     }
+    
+    /** 
+     * @param link
+     * @return String
+     */
     public String navegar(String link) {
         return "Ok... *entrando a " + link + " desde mi Smartphone " + this.getNombre();
     }
+    
+    /** 
+     * @return String
+     */
     public String tomarFoto() {
         return "Say CHEESE :D *le toma la foto con el smartphone " + this.getNombre() + "* SE VE GENIAL!";
     }
+    
+    /** 
+     * @param numero
+     * @return String
+     */
     public String llamar(int numero) {
         String llamada = "*llamando al numero + " + numero + " con mi smartphone " + this.getNombre() + "*\n";
         llamada += "*El telefono al que intenta marcar no esta disponible en este momento*";
         return llamada;
     }
+    
+    /** 
+     * @param funcion
+     * @param destino
+     * @return String
+     */
     public String probar(String funcion, String destino) {
         switch(funcion){
             case "portabilidad":
@@ -52,36 +73,65 @@ public class Smartphone extends Producto implements HacerLlamadas, TomarFoto, Na
                 return "Algo salio mal al intentar usar el telefono. Pruebe de nuevo.";
         }
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean ejecutaVidejouegos() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean haceLlamadas() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean navegaInternet() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean esPortatil() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean tomaFotos() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean reproduceVideos() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @param o
+     * @return int
+     */
     public int compareTo(Producto o) {
         if(this.getPrecio() > o.getPrecio()){
             return 1;

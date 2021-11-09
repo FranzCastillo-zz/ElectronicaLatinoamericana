@@ -17,17 +17,36 @@ public class Smartwatch extends Producto implements TomarFoto, Portable, HacerLl
         this.agregarFuncionalidad("Toma de Fotografias");
         this.agregarFuncionalidad("Realizacion de Llamadas");
     }
+    
+    /** 
+     * @param numero Numeor al que se llamara
+     * @return String Resultado de probar realizar la llamada
+     */
     public String llamar(int numero) {
         String llamada = "*llamando al numero + " + numero + " con mi Smart Watch " + this.getNombre() + "*\n";
         llamada += "*El telefono al que intenta marcar no esta disponible en este momento*";
         return llamada;
     }
+    
+    /** 
+     * @return String Resultado de probar su portabilidad
+     */
     public String portable() {
         return "Como no va a ser portatil? Es un reloj de munieca, no de pared. (Obviamente es portatil)";
     }
+    
+    /** 
+     * @return String El resultado de tomar una foto
+     */
     public String tomarFoto() {
         return "Say CHEESE :D *le toma la foto con el Smart Watch " + this.getNombre() + "* SE VE GENIAL!";
     }
+    
+    /** 
+     * @param funcion La funcionalidad que desea probar
+     * @param destino El destino de la funcion
+     * @return String  El resultado de probar la funcionalidad
+     */
     public String probar(String funcion, String destino) {
         switch(funcion){
             case "llamar":
@@ -40,36 +59,65 @@ public class Smartwatch extends Producto implements TomarFoto, Portable, HacerLl
                 return "Algo salio mal probando el Smart Watch. Pruebe de nuevo.";
         }
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean ejecutaVidejouegos() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean haceLlamadas() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean navegaInternet() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean esPortatil() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean tomaFotos() {
         // TODO Auto-generated method stub
         return true;
     }
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean reproduceVideos() {
         // TODO Auto-generated method stub
         return false;
     }
+    
+    /** 
+     * @param o el objeto con el que se comparara
+     * @return int EL resultado de la comparacion
+     */
     public int compareTo(Producto o) {
         if(this.getPrecio() > o.getPrecio()){
             return 1;
